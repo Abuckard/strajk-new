@@ -1,0 +1,62 @@
+.menu-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #1C1919;
+  }
+
+  .menu-title {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  .menu-page {
+    all: unset; 
+  }
+  
+  .menu-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .menu-link-booking {
+    padding-bottom: 50px;
+  }
+  .menu-link-booking, .menu-link-confirmation {
+    text-decoration: none;
+    color: #EC315A;
+    font-size: 3em;
+    font-weight: bold;
+    margin: 10px 0;
+    display: inline-block;
+    transition: color 0.3s;
+    font-family: Bebas Neue;
+
+  }
+  
+  .menu-link:hover {
+    color: #0056b3;
+  }
+  
+  .menu-back-button {
+    background-color: #007bff;
+    color: white;
+    font-size: 1em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .menu-back-button:hover {
+    background-color: #0056b3;
+  }
+  
