@@ -4,11 +4,24 @@ import './BookingConfirmation.css';
 import logo from './assets/logo.svg';
 import Seeyousoon from './assets/Seeyousoon.png';
 
+interface BookingData {
+  when: string;
+  people: number;
+  lanes: number;
+  id: string;
+  shoes: number[];
+  price: number;
+}
+
+interface LocationState {
+  bookingData: BookingData;
+}
+
 const BookingConfirmation: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const bookingData = location.state?.bookingData;
+  const bookingData = (location.state as LocationState)?.bookingData;
 
   if (!bookingData) {
     return (
@@ -21,10 +34,10 @@ const BookingConfirmation: React.FC = () => {
 
   return (
     <div className="confirmation-container">
-        <div className="logo-container">
+      <div className="logo-container">
         <img src={logo} alt="Logo" className="booking-logo" />
         <img src={Seeyousoon} alt="Logo" className="Seeyousoon-text" />
-        </div>
+      </div>
       <h2 className="confirmation-title">
         <span>BOOKING DETAILS</span>
       </h2>
@@ -42,18 +55,20 @@ const BookingConfirmation: React.FC = () => {
       </fieldset>
       <fieldset className="booking-details">
         <legend>BOOKING NUMBER</legend>
-        <p>{bookingData.id} </p>
+        <p>{bookingData.id}</p>
       </fieldset>
       <fieldset className="booking-details">
         <legend>SHOE SIZES</legend>
         <p>{bookingData.shoes.join(', ')}</p>
       </fieldset>
       <fieldset className="total-price">
-      <span className="total-label"> TOTAL</span>
-      <span className="total-value"> {bookingData.price} SEK</span>
+        <span className="total-label"> TOTAL</span>
+        <span className="total-value"> {bookingData.price} SEK</span>
       </fieldset>
-      <div className='sweet-button-container'>
-        <button className="sweet-button" onClick={() => navigate('/')}>SWEET, LET'S GO!</button>
+      <div className="sweet-button-container">
+        <button className="sweet-button" onClick={() => navigate('/')}>
+          SWEET, LET'S GO!
+        </button>
       </div>
     </div>
   );
